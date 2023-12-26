@@ -119,4 +119,22 @@ class Solution:
 # Explanation: In this case, no transactions are done and the max profit = 0.
 
 # Solution:
-Do it by yourself :)
+class Solution:
+    def maxProfit(self, prices):
+        # Check if the list of prices is empty
+        if not prices or len(prices) == 1:
+            return 0
+
+        # Initialize variables for minimum price and maximum profit
+        min_price = prices[0]
+        max_profit = 0
+
+        # Iterate through the prices
+        for price in prices[1:]:
+            # Update the minimum price if the current price is lower
+            min_price = min(min_price, price)
+
+            # Update the maximum profit if selling at the current price yields a higher profit
+            max_profit = max(max_profit, price - min_price)
+
+        return max_profit
